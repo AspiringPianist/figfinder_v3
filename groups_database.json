@@ -1,0 +1,33 @@
+{
+  "cb0ad00f4440a207ee5744a9ce9266721a01e05f586c872b56fb437448a452fa@group.calendar.google.com": {
+    "name": "amazing group",
+    "description": "boba",
+    "travel_dates": [
+      "2024-08-25T00:00:00+00:00",
+      "2024-08-26T00:00:00+00:00"
+    ],
+    "members": [
+      "member2"
+    ]
+  },
+  "6db29dbae70a5606f8ef7c98e42718806068b830fd037b77ec6081dd63aaa145@group.calendar.google.com": {
+    "name": "pizza party",
+    "description": "amazinggu",
+    "travel_dates": [
+      "2024-08-24T00:00:00+00:00",
+      "2024-08-25T00:00:00+00:00"
+    ],
+    "members": [
+      "unnath2"
+    ]
+  },
+  "8912c4c85b7336bd2427cade48c317e39d1844a77d09afba8f44abef8b20dcb5@group.calendar.google.com": {
+    "name": "group_testing",
+    "description": "hello",
+    "travel_dates": [
+      "2024-08-24T00:00:00+00:00",
+      "2024-08-29T00:00:00+00:00"
+    ],
+    "members": []
+  }
+}

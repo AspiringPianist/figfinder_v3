@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Fig Finder AI App{% endblock %}</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.11.3/main.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.11.3/main.min.js"></script>
+    <script src="https://apis.google.com/js/api.js"></script>
+  </head>
+  <body>
+    <header class="bg-custom-primary">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#home">
+          <img
+            src="{{ url_for('static', filename='logo.png') }}"
+            alt="Logo"
+            class="logo-img"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#home">Home</a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="#notification-banner">Notification</a>
+            </li> -->
+            <li class="nav-item">
+              <a class="nav-link" href="#steps">Steps</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#endpoints">Let's Start</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      {% block content %}
+      <section id="home">
+        <div class="container mt-3">
+          <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+              <div class="alert alert-info text-center" role="alert">
+                <strong>Welcome to Fig Finder!</strong>
+                <p>Your All-Inclusive Smart Travel Planner</p>
+                <a href="#steps" class="btn btn-sm">Let's Start</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="steps" class="container mt-4">
+        <h1>Welcome to Fig Finder AI</h1>
+        <p>Manage your group travel plans easily and efficiently.</p>
+
+        <div class="row">
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="feature card p-3">
+              <h2>Step 01: Connect Calendar</h2>
+              <p>
+                <a href="#calendar" class="btn">Let's Connect Calendar</a>
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="feature card p-3">
+              <h2>Step 02: Create Group</h2>
+              <p>
+                <a href="#group" class="btn">Create Groups</a>
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="feature card p-3">
+              <h2>Step 03: Message Group</h2>
+              <p>
+                <a href="#message" class="btn">Check Events</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="endpoints" class="container">
+        <h1>Group Travel Calendar Process</h1>
+
+        <div class="endpoint">
+          <h2>Connect Calendar</h2>
+          <button class="btn" onclick="connectCalendar()">
+            Connect Google Calendar
+          </button>
+          <div id="connectCalendarResult" class="result"></div>
+        </div>
+
+        <div class="endpoint">
+          <h2>Get Calendar Providers</h2>
+          <button class="btn" onclick="getCalendarProviders()">
+            Get Providers
+          </button>
+          <div id="getProvidersResult" class="result"></div>
+        </div>
+
+        <div class="endpoint">
+          <h2>Create Group</h2>
+          <input type="text" id="groupName" placeholder="Group Name" />
+          <input type="text" id="groupDescription" placeholder="Description" />
+          <input type="date" id="startDate" />
+          <input type="date" id="endDate" />
+          <button class="btn" onclick="createGroup()">Create</button>
+          <div id="createGroupResult" class="result"></div>
+        </div>
+
+        <div class="endpoint">
+          <h2>Join Group</h2>
+          <input type="text" id="joinGroupId" placeholder="Group ID" />
+          <input
+            type="text"
+            id="invitationCode"
+            placeholder="Invitation Code"
+          />
+          <input type="text" id="joinUserName" placeholder="Your Name" />
+          <input type="email" id="joinUserEmail" placeholder="Your Email" />
+          <button class="btn" onclick="joinGroup()">Join</button>
+          <div id="joinGroupResult" class="result"></div>
+        </div>
+
+        <div class="endpoint">
+          <h2>Get Calendar Events</h2>
+          <input type="text" id="eventsGroupId" placeholder="Group ID" />
+          <button class="btn" onclick="getCalendarEvents()">Get Events</button>
+          <div id="getEventsResult" class="result"></div>
+        </div>
+
+        <div class="endpoint">
+          <h2>Check Calendar Availability</h2>
+          <input type="text" id="availabilityGroupId" placeholder="Group ID" />
+          <input type="datetime-local" id="availabilityStartDate" />
+          <input type="datetime-local" id="availabilityEndDate" />
+          <button class="btn" onclick="checkCalendarAvailability()">
+            Check Availability
+          </button>
+          <div id="checkAvailabilityResult" class="result"></div>
+        </div>
+
+        <h3>Synced Calendar</h3>
+        <div id="calendar"></div>
+
+        <div class="endpoint">
+          <h2>Analyze Availability</h2>
+          <input type="text" id="analyzeGroupId" placeholder="Group ID" />
+          <input
+            type="text"
+            id="analyzePreference1"
+            placeholder="Preference 1"
+          />
+          <input
+            type="text"
+            id="analyzePreference2"
+            placeholder="Preference 2"
+          />
+          <input
+            type="text"
+            id="analyzePreference3"
+            placeholder="Preference 3"
+          />
+          <button class="btn" onclick="analyzeAvailability()">Analyze</button>
+          <div id="analyzeResult" class="result"></div>
+        </div>
+
+        <div class="endpoint">
+          <h2>Generate Suggestions</h2>
+          <input type="text" id="suggestGroupId" placeholder="Group ID" />
+          <input
+            type="text"
+            id="suggestPreference1"
+            placeholder="Preference 1"
+          />
+          <input
+            type="text"
+            id="suggestPreference2"
+            placeholder="Preference 2"
+          />
+          <input
+            type="text"
+            id="suggestPreference3"
+            placeholder="Preference 3"
+          />
+          <button class="btn" onclick="generateSuggestions()">Generate</button>
+          <div id="suggestResult" class="result"></div>
+        </div>
+      </section>
+      {% endblock %}
+      <script src="{{ url_for('static', filename='script.js') }}"></script>
+    </main>
+
+    <footer class="bg-custom-primary text-white text-center py-3">
+      <p>
+        &copy; 2024 <b><i>Fig Finder AI</i></b
+        >. All rights reserved.
+      </p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

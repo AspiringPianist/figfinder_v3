@@ -1,0 +1,270 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: #F8F9FA; /* Light background for better readability */
+    color: #212529; /* Dark text color for contrast */
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #00ACB3; /* Lighter blue for the header */
+    padding: 15px;
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    margin-right: 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold; /* Make nav links more prominent */
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+header .logo {
+    margin-right: auto;
+}
+
+.logo-img {
+    height: 50px; /* Set the height of the logo */
+    width: auto;  /* Keep aspect ratio */
+    max-width: 100%; /* Ensure the logo scales down on smaller screens */
+    display: block; /* Remove extra space below the image */
+}
+
+h1, h2 {
+    color: #00ACB3; /* Use primary color for headings */
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+    padding: 20px;
+}
+
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.feature {
+    background: #ffffff; /* White background for feature cards */
+    color: #212529; /* Dark text color for readability */
+    padding: 40px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    flex: 1;
+    min-width: 175px;
+    border: 1px solid #e0e0e0; /* Light border for better separation */
+    height: 175px; /* Consistent height for all cards */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Align content for consistent spacing */
+}
+
+/* Button Styles */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #00ACB3 !important;
+    /*Primarycolorforbuttons*/color: white !important;
+    /*Textcolor*/text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    border: 1px solid transparent;
+    /*Transparentbordertomaintainconsistentbuttonsize*/transition: background-color 0.3s, color 0.3s;
+     /* Smooth transition for hover effects */
+    -webkit-transition: background-color 0.3s, color 0.3s;
+    -moz-transition: background-color 0.3s, color 0.3s;
+    -ms-transition: background-color 0.3s, color 0.3s;
+    -o-transition: background-color 0.3s, color 0.3s;
+}
+
+.btn:hover {
+    background: #009999 !important; /* Darker shade for hover effect */
+    color: #ffffff !important; /* Maintain text color on hover */
+}
+
+/* Secondary Button Style */
+.btn-secondary {
+    background: #6c757d; /* Secondary color */
+    color: white; /* Text color */
+}
+
+.btn-secondary:hover {
+    background: #5a6268; /* Darker shade for hover effect */
+}
+
+/* Alert Button Style (Optional) */
+.btn-alert {
+    background: #dc3545; /* Alert color */
+    color: white; /* Text color */
+}
+
+.btn-alert:hover {
+    background: #c82333; /* Darker shade for hover effect */
+}
+
+/* Notification Banner Styling */
+.notification-banner {
+    background-color: #00ACB3; /* Primary color for banner */
+    color: white;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px; /* Space below the banner */
+}
+
+.notification-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+footer {
+    height: auto;
+    background-color: #00ACB3; /* Same as header for consistency */
+    text-align: center;
+    margin-top: auto;
+    width: 100%;
+    color: white;
+}
+
+/* Flex Container for Centering Content */
+.main-content {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+   margin-top: 10%;
+    max-width: 400px; /* Set a max width for the login container */
+    width: 100%; /* Ensure it takes full width up to max width */
+    padding: 20px;
+    background: #ffffff; /* White background for the form */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.login-container h1 {
+    color: #00ACB3; /* Use primary color for heading */
+    margin-bottom: 20px; /* Space below the heading */
+    text-align: center; /* Center the heading */
+}
+
+.register-container {
+    margin-top: 10%;
+    max-width: 400px; /* Set a max width for the register container */
+    width: 100%; /* Ensure it takes full width up to max width */
+    padding: 20px;
+    background: #ffffff; /* White background for the form */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.register-container h1 {
+    color: #00ACB3; /* Use primary color for heading */
+    margin-bottom: 20px; /* Space below the heading */
+    text-align: center; /* Center the heading */
+}
+
+.form-group {
+    margin-bottom: 15px; /* Space between form fields */
+}
+
+.form-group label {
+    display: block; /* Make labels block elements */
+    margin-bottom: 5px; /* Space below the label */
+    color: #212529; /* Dark text color for labels */
+}
+
+.form-group input {
+    width: 100%; /* Full width input fields */
+    padding: 10px;
+    border: 1px solid #e0e0e0; /* Light border for input fields */
+    border-radius: 5px; /* Rounded corners */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.form-group input:focus {
+    border-color: #00ACB3; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+}
+
+button[type="submit"] {
+    display: block; /* Ensure button takes full width */
+    width: 100%;
+    padding: 10px;
+    background: #00ACB3; /* Primary color for buttons */
+    color: white; /* Text color */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    font-weight: bold;
+    cursor: pointer; /* Change cursor on hover */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
+
+button[type="submit"]:hover {
+    background: #009999; /* Darker shade for hover effect */
+}
+
+/* Optional: Add some margin to the form if needed */
+form {
+    margin-top: 20px;
+}
+
+.result {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: #e9ecef; /* Light background for results */
+    border-radius: 5px; /* Rounded corners */
+    font-family: Arial, sans-serif; /* Consistent font */
+    font-size: 16px; /* Larger font size for readability */
+    color: #333; /* Dark text color */
+    white-space: pre-wrap; /* Preserve whitespace and formatting */
+    border: 1px solid #ced4da; /* Light border for better separation */
+}
+
+/* Alert Styles */
+.result.success {
+    background-color: #d4edda; /* Light green background for success */
+    color: #155724; /* Dark green text for success */
+    border-color: #c3e6cb; /* Green border */
+}
+
+.result.error {
+    background-color: #f8d7da; /* Light red background for errors */
+    color: #721c24; /* Dark red text for errors */
+    border-color: #f5c6cb; /* Red border */
+}
